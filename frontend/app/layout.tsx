@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ServiceWorkerRegister } from "@/components/service-worker-register"
+import { InstallPrompt } from "@/components/install-prompt"
 import { cn } from "@/lib/utils";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'})
@@ -50,6 +51,7 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
           <ServiceWorkerRegister />
+          <InstallPrompt />
         </ThemeProvider>
       </body>
     </html>
