@@ -6,8 +6,7 @@ import { ShoppingCart, Truck, MapPin, ChevronRight, Plus } from "lucide-react"
 
 const stats = [
   { icon: ShoppingCart, value: "3", label: "Orders", sub: "+3 vs yest", iconBg: "bg-blue-50", iconColor: "text-blue-600" },
-  { icon: Truck, value: "42", label: "Tons · dispatched", sub: null, iconBg: "bg-green-50", iconColor: "text-green-600" },
-  { icon: MapPin, value: "2", label: "Vehicles · in rotation", sub: null, iconBg: "bg-amber-50", iconColor: "text-amber-600" },
+  { icon: Truck, value: "5", label: "Dispatched", sub: null, iconBg: "bg-green-50", iconColor: "text-green-600" },
 ]
 
 const pipeline = [
@@ -41,6 +40,18 @@ const recentOrders = [
     site: "Tambaram East", time: "Today · 08:00",
     avatarBg: "bg-gray-500",
   },
+  {
+    initials: "SK", name: "Sri Krishna Infra", status: "Delivered",
+    orderId: "SRBT-2838", detail: "M-Sand × 3u, Jelly × 8t",
+    site: "Ambattur", time: "Yesterday · 16:30",
+    avatarBg: "bg-indigo-600",
+  },
+  {
+    initials: "RK", name: "RK Builders", status: "In transit",
+    orderId: "SRBT-2837", detail: "20mm Aggregate × 12t",
+    site: "Porur", time: "Yesterday · 14:15",
+    avatarBg: "bg-orange-600",
+  },
 ]
 
 export default function DashboardPage() {
@@ -52,7 +63,7 @@ export default function DashboardPage() {
       {/* Mobile header */}
       <AppHeader />
 
-      <div className="px-4 pt-1 pb-4 md:px-8 md:pt-8 space-y-5">
+      <div className="px-4 pt-1 pb-4 md:px-8 md:pt-8 flex flex-col gap-6">
 
         {/* Greeting — mobile */}
         <div className="md:hidden">
@@ -90,7 +101,7 @@ export default function DashboardPage() {
               {now.toLocaleDateString("en-IN", { day: "numeric", month: "short" })} · {now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-2 md:gap-4">
+          <div className="grid grid-cols-2 gap-2 md:gap-4">
             {stats.map(({ icon: Icon, value, label, sub, iconBg, iconColor }) => (
               <Card key={label} className="border-gray-100 shadow-none">
                 <CardContent className="p-2 md:p-4 flex items-center gap-2 md:block">
