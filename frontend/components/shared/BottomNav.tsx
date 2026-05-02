@@ -16,7 +16,7 @@ export function BottomNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="shrink-0 z-50 bg-white/80 backdrop-blur-lg border-t border-gray-100 flex md:hidden">
+    <nav className="sticky bottom-0 z-50 bg-white/80 backdrop-blur-lg border-t border-gray-100 flex md:hidden">
       {tabs.map(({ href, matchPrefix, icon: Icon, label }) => {
         const active = pathname === matchPrefix || pathname.startsWith(matchPrefix + "/")
         return (

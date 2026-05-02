@@ -8,7 +8,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <Sidebar />
 
       {/* Main area */}
-      <div className="flex-1 flex flex-col min-w-0 min-h-[100dvh]">
+      <div className="flex-1 flex flex-col min-w-0 h-[100dvh]">
         {/* Desktop top bar */}
         <header className="hidden md:flex h-14 bg-white border-b border-gray-100 items-center justify-between px-6 shrink-0">
           <span className="text-sm font-semibold text-gray-700">SRBT Portal</span>
@@ -18,13 +18,15 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </div>
         </header>
 
-        {/* Page content */}
-        <main className="flex-1 overflow-auto">
-          {children}
-        </main>
+        {/* Scrollable content wrapper — nav is sticky inside here */}
+        <div className="flex-1 overflow-y-auto flex flex-col">
+          <main className="flex-1">
+            {children}
+          </main>
 
-        {/* Mobile bottom nav — sits naturally above safe-area */}
-        <BottomNav />
+          {/* Mobile bottom nav — sticky at bottom of scrollport */}
+          <BottomNav />
+        </div>
       </div>
     </div>
   )
