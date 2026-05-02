@@ -2,7 +2,6 @@ import Link from "next/link"
 import { AppHeader } from "@/components/shared/AppHeader"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
 import { ShoppingCart, Truck, MapPin, ChevronRight, Plus } from "lucide-react"
 
 const stats = [
@@ -91,16 +90,18 @@ export default function DashboardPage() {
               {now.toLocaleDateString("en-IN", { day: "numeric", month: "short" })} · {now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-2.5">
+          <div className="grid grid-cols-3 gap-2.5 md:gap-4">
             {stats.map(({ icon: Icon, value, label, sub, iconBg, iconColor }) => (
               <Card key={label} className="border-gray-100 shadow-none">
-                <CardContent className="p-3">
-                  <div className={`w-8 h-8 rounded-lg ${iconBg} flex items-center justify-center mb-2`}>
-                    <Icon className={`w-4 h-4 ${iconColor}`} />
+                <CardContent className="p-3 md:p-4 flex items-center gap-2.5 md:block">
+                  <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg ${iconBg} flex items-center justify-center shrink-0`}>
+                    <Icon className={`w-4 h-4 md:w-5 md:h-5 ${iconColor}`} />
                   </div>
-                  <p className="text-2xl font-bold text-gray-900 leading-none">{value}</p>
-                  <p className="text-[10px] text-gray-400 mt-1 leading-tight">{label}</p>
-                  {sub && <p className="text-[10px] text-green-600 font-medium mt-0.5">{sub}</p>}
+                  <div className="min-w-0">
+                    <p className="text-xl md:text-2xl font-bold text-gray-900 leading-none">{value}</p>
+                    <p className="text-[10px] text-gray-400 mt-0.5 leading-tight">{label}</p>
+                    {sub && <p className="text-[10px] text-green-600 font-medium mt-0.5">{sub}</p>}
+                  </div>
                 </CardContent>
               </Card>
             ))}
