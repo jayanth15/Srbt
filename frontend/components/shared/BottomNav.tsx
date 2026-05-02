@@ -30,9 +30,6 @@ export function BottomNav() {
           >
             <Icon strokeWidth={2} className="w-5 h-5 shrink-0" />
             <span className="text-[10px] font-medium leading-none">{label}</span>
-            {active && (
-              <span className="w-1 h-1 rounded-full bg-blue-600 mt-0.5" />
-            )}
           </Link>
         )
       })}
