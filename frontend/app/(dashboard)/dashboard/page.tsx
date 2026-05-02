@@ -90,17 +90,17 @@ export default function DashboardPage() {
               {now.toLocaleDateString("en-IN", { day: "numeric", month: "short" })} · {now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-2.5 md:gap-4">
+          <div className="grid grid-cols-3 gap-2 md:gap-4">
             {stats.map(({ icon: Icon, value, label, sub, iconBg, iconColor }) => (
               <Card key={label} className="border-gray-100 shadow-none">
-                <CardContent className="p-3 md:p-4 flex items-center gap-2.5 md:block">
-                  <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg ${iconBg} flex items-center justify-center shrink-0`}>
-                    <Icon className={`w-4 h-4 md:w-5 md:h-5 ${iconColor}`} />
+                <CardContent className="p-2 md:p-4 flex items-center gap-2 md:block">
+                  <div className={`w-6 h-6 md:w-10 md:h-10 rounded-md md:rounded-lg ${iconBg} flex items-center justify-center shrink-0`}>
+                    <Icon className={`w-3 h-3 md:w-5 md:h-5 ${iconColor}`} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xl md:text-2xl font-bold text-gray-900 leading-none">{value}</p>
+                    <p className="text-lg md:text-2xl font-bold text-gray-900 leading-none">{value}</p>
                     <p className="text-[10px] text-gray-400 mt-0.5 leading-tight">{label}</p>
-                    {sub && <p className="text-[10px] text-green-600 font-medium mt-0.5">{sub}</p>}
+                    {sub && <p className="text-[9px] text-green-600 font-medium mt-0.5">{sub}</p>}
                   </div>
                 </CardContent>
               </Card>
