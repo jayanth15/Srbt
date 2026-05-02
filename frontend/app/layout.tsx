@@ -20,7 +20,8 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased overflow-y-scroll", fontMono.variable, "font-sans", inter.variable)}
+      style={{ scrollbarGutter: "stable" }}
+      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
