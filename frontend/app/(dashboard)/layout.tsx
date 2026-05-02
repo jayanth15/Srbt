@@ -19,7 +19,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </header>
 
         {/* Scrollable content wrapper — nav is sticky inside here */}
-        <div className="flex-1 overflow-y-auto flex flex-col">
+        <div className="flex-1 overflow-y-scroll flex flex-col">
           <main className="flex-1">
             {children}
           </main>

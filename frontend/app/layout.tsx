@@ -44,7 +44,6 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      style={{ scrollbarGutter: "stable" }}
       className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
     >
       <body>
