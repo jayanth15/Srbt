@@ -137,32 +137,34 @@ export default function DashboardPage() {
               See all
             </Link>
           </div>
-          <Card className="border-gray-100 shadow-none divide-y divide-gray-50">
+          <div className="space-y-2">
             {recentOrders.map((order) => (
               <Link key={order.orderId} href={`/orders/${order.orderId}`}>
-                <div className="flex items-start gap-3 p-3.5 hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className={`w-9 h-9 rounded-full ${order.avatarBg} flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5`}>
-                    {order.initials}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-2 mb-0.5">
-                      <p className="text-sm font-semibold text-gray-900 truncate">{order.name}</p>
-                      <Badge variant="outline" className={`text-[10px] px-1.5 py-0 shrink-0 ${statusStyles[order.status]}`}>
-                        {order.status}
-                      </Badge>
+                <Card className="border-gray-100 shadow-none hover:bg-gray-50 transition-colors cursor-pointer">
+                  <CardContent className="flex items-start gap-3 p-3">
+                    <div className={`w-9 h-9 rounded-full ${order.avatarBg} flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5`}>
+                      {order.initials}
                     </div>
-                    <p className="text-xs text-gray-500 truncate">{order.orderId} · {order.detail}</p>
-                    <div className="flex items-center gap-1 mt-0.5">
-                      <MapPin className="w-3 h-3 text-gray-300 shrink-0" />
-                      <p className="text-[11px] text-gray-400 truncate">{order.site}</p>
-                      <span className="text-gray-200">·</span>
-                      <p className="text-[11px] text-gray-400 shrink-0">{order.time}</p>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2 mb-0.5">
+                        <p className="text-sm font-semibold text-gray-900 truncate">{order.name}</p>
+                        <Badge variant="outline" className={`text-[10px] px-1.5 py-0 shrink-0 ${statusStyles[order.status]}`}>
+                          {order.status}
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-gray-500 truncate">{order.orderId} · {order.detail}</p>
+                      <div className="flex items-center gap-1 mt-0.5">
+                        <MapPin className="w-3 h-3 text-gray-300 shrink-0" />
+                        <p className="text-[11px] text-gray-400 truncate">{order.site}</p>
+                        <span className="text-gray-200">·</span>
+                        <p className="text-[11px] text-gray-400 shrink-0">{order.time}</p>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </CardContent>
+                </Card>
               </Link>
             ))}
-          </Card>
+          </div>
         </div>
 
       </div>
