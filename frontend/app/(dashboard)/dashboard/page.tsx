@@ -137,9 +137,9 @@ export default function DashboardPage() {
               See all
             </Link>
           </div>
-          <div className="space-y-2">
+          <div className="flex flex-col gap-3">
             {recentOrders.map((order) => (
-              <Link key={order.orderId} href={`/orders/${order.orderId}`}>
+              <Link key={order.orderId} href={`/orders/${order.orderId}`} className="block">
                 <Card className="border-gray-100 shadow-none hover:bg-gray-50 transition-colors cursor-pointer">
                   <CardContent className="flex items-start gap-3 p-3">
                     <div className={`w-9 h-9 rounded-full ${order.avatarBg} flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5`}>
