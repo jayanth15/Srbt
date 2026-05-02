@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="About Us" description="Learn about Sri Raghavendra Blue Metals & Transport — 20+ years of trusted service in Tamil Nadu.">
+  <Header />
+  <main>
+    <!-- Page Hero -->
+    <section class="bg-blue-800 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-extrabold mb-3">About Us</h1>
+        <p class="text-blue-200 text-lg">Our story, values, and commitment to quality.</p>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Story</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Sri Raghavendra Blue Metals & Transport was founded with a simple goal: to provide reliable, quality blue metal aggregates with dependable transportation to contractors, builders, and infrastructure developers across Tamil Nadu.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Over two decades, we have grown from a small local supplier to a trusted name in the construction supply chain. Our integrated approach — owning both quarry operations and a transport fleet — means we control quality from source to site.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Today, SRBT operates a modern digital portal at <a href="https://app.srbt.in" class="text-blue-700 hover:underline" target="_blank">app.srbt.in</a> where clients can place orders, track deliveries, and manage invoices seamlessly.
+          </p>
+        </div>
+
+        <!-- Values -->
+        <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { title: 'Quality', body: 'All aggregates are tested to meet IS standards before dispatch.' },
+            { title: 'Reliability', body: 'On-time delivery with our own fleet — no outsourcing delays.' },
+            { title: 'Transparency', body: 'Digital order tracking and invoicing so you always know the status.' },
+          ].map(({ title, body }) => (
+            <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
+              <h3 class="text-lg font-bold text-blue-800 mb-2">{title}</h3>
+              <p class="text-sm text-gray-600">{body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

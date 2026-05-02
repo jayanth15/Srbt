@@ -1,0 +1,44 @@
+---
+const services = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />`,
+    title: 'Blue Metal Aggregates',
+    description: 'High-quality crushed granite aggregates in all standard sizes — 6mm, 12mm, 20mm, and 40mm — for construction, concrete, and road works.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />`,
+    title: 'Transport Services',
+    description: 'Reliable fleet of lorries and tippers for bulk material delivery directly to your project site, anywhere in Tamil Nadu.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />`,
+    title: 'Bulk Orders',
+    description: 'Special pricing and logistics planning for large-scale infrastructure and construction projects with dedicated account management.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />`,
+    title: 'Site Delivery',
+    description: 'Scheduled and on-demand delivery with real-time tracking. We coordinate timing to match your project schedule and reduce downtime.',
+  },
+];
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Our Services</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">Everything you need for your construction and infrastructure projects, delivered with reliability.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map(({ icon, title, description }) => (
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icon} />
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">{title}</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

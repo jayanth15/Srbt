@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Services from '../components/Services.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Services" description="Blue metal aggregates in all sizes and reliable transport services across Tamil Nadu.">
+  <Header />
+  <main>
+    <section class="bg-blue-800 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-extrabold mb-3">Services</h1>
+        <p class="text-blue-200 text-lg">Aggregates, transport, and bulk supply — all under one roof.</p>
+      </div>
+    </section>
+    <Services />
+
+    <!-- Aggregate sizes -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">Available Aggregate Sizes</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {['6mm', '12mm', '20mm', '40mm'].map((size) => (
+            <div class="bg-blue-700 text-white rounded-xl p-6 text-center">
+              <p class="text-3xl font-extrabold">{size}</p>
+              <p class="text-blue-200 text-sm mt-1">Blue Metal</p>
+            </div>
+          ))}
+        </div>
+        <p class="mt-6 text-gray-500 text-sm">Custom sizes available on request for bulk orders.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

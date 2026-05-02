@@ -1,0 +1,60 @@
+---
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Text -->
+      <div>
+        <span class="text-blue-700 font-semibold text-sm uppercase tracking-wider">About Us</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-6">
+          Two Decades of Trust in Blue Metal & Transport
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Sri Raghavendra Blue Metals & Transport (SRBT) has been a cornerstone of the construction supply chain in Tamil Nadu for over 20 years. We source, process, and deliver high-grade blue metal aggregates to construction sites, builders, and contractors.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-8">
+          Our integrated transport fleet ensures timely delivery, while our customer portal at <a href="https://app.srbt.in" class="text-blue-700 font-medium hover:underline" target="_blank">app.srbt.in</a> gives you real-time visibility into your orders, invoices, and delivery status.
+        </p>
+        <ul class="space-y-3">
+          {[
+            'Quality-tested aggregates at every stage',
+            'Own fleet — no middlemen, better rates',
+            'Digital order tracking via our portal',
+            'Dedicated support for bulk buyers',
+          ].map((point) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-gray-700">{point}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-8">
+          <a href="/about" class="inline-flex items-center gap-2 text-blue-700 font-semibold hover:gap-3 transition-all">
+            Learn more about us
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual card -->
+      <div class="grid grid-cols-2 gap-4">
+        {[
+          { num: '20+', label: 'Years in Business', color: 'bg-blue-700' },
+          { num: '500+', label: 'Projects Completed', color: 'bg-blue-600' },
+          { num: '50+', label: 'Transport Fleet', color: 'bg-blue-800' },
+          { num: '1000+', label: 'Satisfied Clients', color: 'bg-blue-900' },
+        ].map(({ num, label, color }) => (
+          <div class={`${color} text-white rounded-2xl p-6 flex flex-col justify-between min-h-[140px]`}>
+            <p class="text-4xl font-extrabold">{num}</p>
+            <p class="text-sm text-blue-200 font-medium">{label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

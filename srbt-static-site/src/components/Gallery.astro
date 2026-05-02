@@ -1,0 +1,38 @@
+---
+// Placeholder gallery items — replace src with real images
+const items = [
+  { src: '/images/gallery/quarry-1.jpg', alt: 'Blue metal quarry operations' },
+  { src: '/images/gallery/aggregate-1.jpg', alt: 'Crushed granite aggregates' },
+  { src: '/images/gallery/transport-1.jpg', alt: 'Transport fleet on site' },
+  { src: '/images/gallery/delivery-1.jpg', alt: 'Material delivery to project site' },
+  { src: '/images/gallery/site-1.jpg', alt: 'Construction site supply' },
+  { src: '/images/gallery/fleet-1.jpg', alt: 'SRBT fleet vehicles' },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Gallery</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">A glimpse of our operations — from quarry to delivery.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {items.map(({ src, alt }) => (
+        <div class="aspect-video bg-gray-100 rounded-xl overflow-hidden group">
+          <img
+            src={src}
+            alt={alt}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+            onerror="this.parentElement.classList.add('flex','items-center','justify-center'); this.style.display='none'; this.parentElement.innerHTML += '<span class=\'text-gray-400 text-sm text-center p-4\'>' + this.alt + '</span>'"
+          />
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-10">
+      <a href="/gallery" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-blue-700 text-blue-700 font-semibold rounded-lg hover:bg-blue-50 transition-colors">
+        View Full Gallery
+      </a>
+    </div>
+  </div>
+</section>

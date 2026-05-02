@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "frontend",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /home/jayanth/workspace/SRBT/frontend && npm run dev -- --port $PORT"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
