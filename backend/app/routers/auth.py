@@ -3,7 +3,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlmodel.ext.asyncio.session import AsyncSession
 from pydantic import BaseModel
 from app.database import get_session
-from app.services.auth import authenticate_user, create_access_token, hash_password, get_user_by_phone
+from app.services.auth import authenticate_user, create_access_token, hash_password, get_user_by_phone, get_current_user
 from app.models.user import User, UserRole
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -20,6 +20,19 @@ class RegisterRequest(BaseModel):
     phone: str
     email: str | None = None
     password: str
+
+
+class UserResponse(BaseModel):
+    id: int
+    first_name: str
+    last_name: str
+    phone: str
+    email: str | None = None
+    role: str
+    is_active: bool
+    created_at: str
+
+    model_config = {"from_attributes": True}
 
 
 @router.post("/login", response_model=Token)
@@ -46,3 +59,8 @@ async def register(data: RegisterRequest, session: AsyncSession = Depends(get_se
     session.add(user)
     await session.commit()
     return {"message": "Account created successfully"}
+
+
+@router.get("/me", response_model=UserResponse)
+async def me(current_user: User = Depends(get_current_user)):
+    return current_user

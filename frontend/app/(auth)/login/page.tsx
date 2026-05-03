@@ -2,38 +2,41 @@
 
 import { useState, FormEvent } from "react"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000"
+import { api } from "@/lib/api"
 
 export default function LoginPage() {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
-  const [error, setError]     = useState("")
+  const [error, setError] = useState("")
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError("")
     setLoading(true)
     const form = e.currentTarget
-    const phone    = (form.elements.namedItem("phone") as HTMLInputElement).value.trim()
+    const phone = (form.elements.namedItem("phone") as HTMLInputElement).value.trim()
     const password = (form.elements.namedItem("password") as HTMLInputElement).value
 
     try {
-      // FastAPI OAuth2 form-encoded login
       const body = new URLSearchParams({ username: phone, password })
-      const res = await fetch(`${API_BASE}/api/v1/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString(),
-      })
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000"}/api/v1/auth/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: body.toString(),
+        }
+      )
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
         throw new Error(data.detail ?? "Invalid credentials")
       }
       const data = await res.json()
-      localStorage.setItem("token", data.access_token)
+      localStorage.setItem("srbt_token", data.access_token)
+      router.refresh()
       router.replace("/dashboard")
     } catch (err: any) {
       setError(err.message ?? "Login failed")
@@ -89,6 +92,13 @@ export default function LoginPage() {
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Sign In"}
           </Button>
         </form>
+
+        <p className="text-center text-xs text-gray-500 mt-6">
+          Don&apos;t have an account?{" "}
+          <Link href="/register" className="text-blue-600 font-medium hover:underline">
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   )

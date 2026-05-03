@@ -1,10 +1,11 @@
 export interface User {
-  id: string
+  id: number
   first_name: string
   last_name: string
   phone: string
-  email?: string
+  email?: string | null
   role: "admin" | "staff" | "customer"
+  is_active: boolean
   created_at: string
 }
 
