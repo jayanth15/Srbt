@@ -18,7 +18,13 @@
       "Bash(npx tsc:*)",
       "Bash(xargs kill:*)",
       "Bash(pkill -f 'next dev')",
-      "Bash(pkill -f next-server)"
+      "Bash(pkill -f next-server)",
+      "Bash(ls /home/jayanth/workspace/SRBT/frontend/app/\\\\\\(dashboard\\\\\\)/)",
+      "Bash(cat \"/home/jayanth/workspace/SRBT/frontend/app/\\(shell\\)/orders/[id]/page.tsx\")",
+      "Bash(ls /home/jayanth/workspace/SRBT/frontend/app/\\\\\\(shell\\\\\\)/orders/)",
+      "Bash(npx shadcn@latest add popover command)",
+      "Bash(mkdir -p \"/home/jayanth/workspace/SRBT/frontend/app/\\(shell\\)/catalog/[id]\")",
+      "Bash(\"/home/jayanth/workspace/SRBT/frontend/app/\\(shell\\)/catalog/[id]/page.tsx\":*)"
     ]
   }
 }

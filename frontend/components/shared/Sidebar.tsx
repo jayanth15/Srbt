@@ -2,22 +2,21 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, BookOpen, ShoppingCart, FileText, Truck } from "lucide-react"
+import { LayoutDashboard, Package, ShoppingCart, FileText } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { href: "/catalog", icon: BookOpen, label: "Catalog" },
-  { href: "/orders", icon: ShoppingCart, label: "Orders" },
-  { href: "/invoices", icon: FileText, label: "Invoices" },
-  { href: "/vehicles", icon: Truck, label: "Vehicles" },
+  { href: "/products",  icon: Package,         label: "Products"  },
+  { href: "/orders",    icon: ShoppingCart,    label: "Orders"    },
+  { href: "/invoices",  icon: FileText,        label: "Invoices"  },
 ]
 
 export function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="hidden md:flex flex-col w-60 shrink-0 bg-[#0c2340] text-white min-h-screen">
+    <aside className="hidden md:flex flex-col w-56 shrink-0 bg-[#0c2340] text-white min-h-screen">
       {/* Brand */}
       <div className="px-5 py-5 border-b border-white/10">
         <div className="flex items-center gap-3">
@@ -43,7 +42,7 @@ export function Sidebar() {
                 "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                 active
                   ? "bg-blue-600 text-white"
-                  : "text-blue-200 hover:bg-white/10 hover:text-white"
+                  : "text-blue-200 hover:bg-white/10 hover:text-white",
               )}
             >
               <Icon className="w-4 h-4 shrink-0" />
@@ -55,7 +54,7 @@ export function Sidebar() {
 
       {/* Footer */}
       <div className="px-5 py-4 border-t border-white/10">
-        <p className="text-xs text-blue-400">SRBT Portal v1.0</p>
+        <p className="text-xs text-blue-400">SRBT Portal v2.0</p>
       </div>
     </aside>
   )

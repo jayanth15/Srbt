@@ -2,14 +2,14 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, BookOpen, ShoppingCart, FileText } from "lucide-react"
+import { LayoutDashboard, Package, ShoppingCart, FileText } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const tabs = [
-  { href: "/dashboard", matchPrefix: "/dashboard", icon: LayoutDashboard, label: "Home" },
-  { href: "/catalog", matchPrefix: "/catalog", icon: BookOpen, label: "Catalog" },
-  { href: "/orders/new", matchPrefix: "/orders", icon: ShoppingCart, label: "Order" },
-  { href: "/invoices", matchPrefix: "/invoices", icon: FileText, label: "Invoices" },
+  { href: "/dashboard", matchPrefix: "/dashboard", icon: LayoutDashboard, label: "Home"     },
+  { href: "/products",  matchPrefix: "/products",  icon: Package,         label: "Products" },
+  { href: "/orders",    matchPrefix: "/orders",    icon: ShoppingCart,    label: "Orders"   },
+  { href: "/invoices",  matchPrefix: "/invoices",  icon: FileText,        label: "Invoices" },
 ]
 
 export function BottomNav() {
@@ -25,7 +25,7 @@ export function BottomNav() {
             href={href}
             className={cn(
               "flex-1 flex flex-col items-center justify-center gap-1 py-2 transition-colors",
-              active ? "text-blue-600" : "text-gray-400"
+              active ? "text-blue-600" : "text-gray-400",
             )}
           >
             <Icon strokeWidth={2} className="w-5 h-5 shrink-0" />

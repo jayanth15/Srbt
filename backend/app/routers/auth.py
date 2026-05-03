@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-from sqlalchemy.ext.asyncio import AsyncSession
+from sqlmodel.ext.asyncio.session import AsyncSession
 from pydantic import BaseModel
 from app.database import get_session
 from app.services.auth import authenticate_user, create_access_token, hash_password, get_user_by_phone
